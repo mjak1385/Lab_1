@@ -1,103 +1,104 @@
-
-<! This little bit of code started with https://www.wikihow.com/Create-a-Questionnaire-in-HTML and got modified, by then using info from w3schools.com to continue.
-
-This is an UGLY survey....  PLEASE MODIFY IT!
-
-Caroline Barrière
-May 2020
-
->
-
+<!-- IMPORTANT to use a CSS file - external -->
 <!DOCTYPE html>
-<html>
+<html lang="eng">
   <head>
     <meta charset="utf-8">
-	<! IMPORTANT to use a CSS file - external >
-	<link href="styles/style.css" rel="stylesheet" type="text/css">
-    <title>Questionnaire</title>
+	<link href="Resources/styles.css" rel="stylesheet" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provigo Questionnaire</title>
   </head>
-  
+
   <body>
-	<h1>Survey</h1>
-	<form id="myform" action="index.php" >
+	<h1>Provigo User Experience Survey</h1>
 	<!-- <! You should make your image clickable> -->
-        <img src="images/Provigo-FrontPage.JPG" alt="http://Provigo.ca" width="450" height="300">
-        <br>
-        <br>
-        <div class="question">
-        <h2> Personal Information </h2>
-        <p>First name: <input type="text" name="firstname"></p>
-        <p>Last name: <input type="text" name="lastname"></p>
-        <br>
-        <br>
-		
-	</div>	
-		
-	<div class="question">
+	 <a href="http://Provigo.ca">  <img src="Resources/images/Provigo-FrontPage.JPG" alt="http://Provigo.ca" width="450" height="300"> </a> <br><!-- Image is 993x838-->
+	
+	 <button onclick="toggleContent()" id="startSurvey"> Start Survey</button>  <!-- Make Button bigger and centered-->
 
-		<label for="appealing_question">What part of the website was the most appealing to you?</label><br>
-  		<input type="text" id="name" name="appealing_question" placeholder="Answer here..."><br>
+	 <script>
+	 	function toggleContent(){
+			var x = document.getElementById("SurveyForm");
+			x.style.display = "block";
+			var b = document.getElementById("startSurvey");
+			b.remove();
+		}
+	</script>
+
+	<div id="SurveyForm" style="display:none;">
+		<form id="myform" action="index.php" > 
+
+			<div class="question">
+
+				<h2> Personal Information </h2>
+				<p>First name: <input type="text" name="fName"></p>
+				<p>Last name: <input type="text" name="lName"></p>
+
+
+				<h2>Survey Questions</h2>
+
+				<h4>What part of the website was the most appealing to you?</h4> 
+				<input type="text" name="qTextInput" placeholder="Answer here...">
+
+				
+				<h4>How did you hear about us?</h4>
+				<select id="mediaList">
+					<option value="Website" selected="selected">Internet</option>
+					<option value="Advertisement">Advertisement</option>
+					<option value="Social Media">Word of Mouth</option>
+					<option value="Others">Others</option>
+				</select>
+
+
+				<h4>Overall, how would you rate your experience with our website?</h4>
+			
+				<input type="radio" id="excellent" value="Excellent">
+				<label for="excellent">Excellent</label><br>
+				 <input type="radio" id="good" value="Good">
+				<label for="good"> Good </label><br>
+				<input type="radio" id="neutral" name="userRating" value="Neutral">
+				<label for="neutral">Neutral</label><br>
+				<input type="radio" id="poor" name="userRating" value="Poor">
+				<label for="poor">Poor</label><br>
+				<input type="radio" id="veryPoor" name="userRating" value="Very Poor">
+				<label for="veryPoor">Very Poor</label> <br>
+
+				<h4>On a scale of 1-5, how well does our website meet your needs</h4>
+				<input type="radio" id="one" name="web_needs" value="One">
+				<label for="one">1</label><br>
+				<input type="radio" id="two" name="web_needs" value="Two">
+				<label for="two">2</label><br>
+				<input type="radio" id="three" name="web_needs" value="Three">
+				<label for="three">3</label><br>
+				<input type="radio" id="four" name="web_needs" value="Four">
+				<label for="four">4</label><br>
+				<input type="radio" id="five" name="web_needs" value="Five">
+				<label for="five">5</label><br>
+
+				<h4>Which part of the website do you like the most/least?</h4>
+				<input type="checkbox" name="Color" value="Red">Red<br>
+				<input type="checkbox" name="Color" value="Green">Green<br>
+				<input type="checkbox" name="Color" value="Blue">Blue<br>
+				<br>
+
+			</div>
+			
+			<!-- Additional Comments -->
+
 		
-		How did you hear about us?<br>
-		<select id="favorite">
-			<option value="Internet" selected="selected">Internet</option>
-			<option value="Advertisement">Advertisement</option>
-			<option value="Word of Mouth">Word of Mouth</option>
-			<option value="Others">Others</option>
-		</select>
+		</form>
+				
+		<button id="submitButton" type="button" class="block">
+			SUBMIT your questionnaire
+		</button>
 
-        <br>
-        How likely are you to recommend this website to friends?<br>
-        <input type="radio" id="elikely" name="web_needs" value="Extremely Likely">
-        <label for="elikely">Extremely Likely</label><br>
-		<input type="radio" id="likely" name="web_needs" value="Likely">
-        <label for="likely">Likely</label><br>
-		<input type="radio" id="neutral" name="web_needs" value="Neutral">
-        <label for="neutral">Neutral</label><br>
-        <input type="radio" id="unlikely" name="web_needs" value="Unlikely">
-        <label for="unlikely">Unlikely</label><br>
-        <input type="radio" id="eunlikely" name="web_needs" value="Extremely Unlikely">
-        <label for="eunlikely">Extremely Unlikely</label> 
-		<br>
-		<br>
 
-        On a scale of 1-5, how well does our website meet your needs<br>
-        <input type="radio" id="one" name="web_needs" value="One">
-        <label for="one">1</label><br>
-		<input type="radio" id="two" name="web_needs" value="Two">
-        <label for="two">2</label><br>
-		<input type="radio" id="three" name="web_needs" value="Three">
-        <label for="three">3</label><br>
-        <input type="radio" id="four" name="web_needs" value="Four">
-        <label for="four">4</label><br>
-        <input type="radio" id="five" name="web_needs" value="Five">
-        <label for="five">5</label> 
-		<br>
-		<br>
+		<h4>Any Suggestions?</h4>
+		<textarea name="comment" id="comment" rows="5" cols="30"></textarea>
 
-		Which part of the website do you like the most/least?<br>
-		<input type="checkbox" name="Color" value="Red">Red<br>
-		<input type="checkbox" name="Color" value="Green">Green<br>
-		<input type="checkbox" name="Color" value="Blue">Blue<br>
-		
-		<br>
 	</div>
-	
-	<br>
-	<br>
-		
-	Additional Comments:<br>
-	<textarea rows="5" cols="30"></textarea>
-			
-	<br>
-	<br>
-			
-	<button id="submitButton" type="button" class="block">
-		SUBMIT your questionnaire
-	</button>
-		
+
+
 	<p id="signature">Site created by Caroline Barrière</p>	
-	
-	</form>
-  </body>
+
+</body>
 </html> 

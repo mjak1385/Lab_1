@@ -30,6 +30,10 @@ header p {
     color: #666;
     font-style: italic;
 }
+.question h4{
+    margin-bottom: 0.25%;
+    
+}
 
 /* Styling the Question Divisions (from template) */
 .question {
@@ -40,13 +44,16 @@ header p {
     border-radius: 5px;
 }
 
-/* Making labels stand out */
+
+/* Making labels stand out
 .question label {
     font-weight: bold;
     font-size: 1.1em;
     display: inline-block;
     margin-bottom: 8px;
-}
+}  */
+
+
 
 /* Styling Inputs to look cleaner */
 input[type="text"], 
@@ -93,4 +100,8 @@ input[type="checkbox"] {
     color: #7f8c8d;
     border-top: 1px solid #eee;
     padding-top: 15px;
+}
+
+.hidden {
+    display: none;
 }
